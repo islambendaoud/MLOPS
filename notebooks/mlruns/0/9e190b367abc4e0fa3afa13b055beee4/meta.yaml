@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/islambendaoud/Desktop/MLOPS/notebooks/mlruns/0/9e190b367abc4e0fa3afa13b055beee4/artifacts
+end_time: 1699903571828
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9e190b367abc4e0fa3afa13b055beee4
+run_name: clumsy-goose-431
+run_uuid: 9e190b367abc4e0fa3afa13b055beee4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699903571804
+status: 3
+tags: []
+user_id: islambendaoud
