@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 
 TEST_MODEL_NAME = os.getenv("TEST_MODEL_NAME")
 TEST_MODEL_VERSION = os.getenv("TEST_MODEL_VERSION")
-TEST_TEST_TEST = 0.9
+TEST_TEST_TEST = os.getenv("TEST_TEST_TEST")
 TEST_FILE = os.getenv("TEST_FILE")
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
