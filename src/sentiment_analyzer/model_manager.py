@@ -20,3 +20,11 @@ class ModelManager:
         df = pd.read_csv(self.inpute_file)
         output = model.predict(df["review"])
         return output
+    
+
+    def promote(self , status): 
+        client = MlflowClient()
+        client.transition_model_version_stage(
+            name=self.model_name, version=self.model_version, stage=status
+            )
+        return None 
