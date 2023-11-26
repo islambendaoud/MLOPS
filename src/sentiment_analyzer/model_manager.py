@@ -1,6 +1,8 @@
 # python class named ModelManager
 import mlflow
 import pandas as pd
+from mlflow.tracking import MlflowClient
+
 
 class ModelManager:
     def __init__(self, inpute_file, output_model, model_name, model_version, mlflow_url):
@@ -23,8 +25,9 @@ class ModelManager:
     
 
     def promote(self , status): 
-        client = MlflowClient()
+        client = MlflowClient(self.mlflow_url)
         client.transition_model_version_stage(
             name=self.model_name, version=self.model_version, stage=status
             )
+        print(f"promoted model {self.model_name} version {self.model_version} to stage {status}")
         return None 

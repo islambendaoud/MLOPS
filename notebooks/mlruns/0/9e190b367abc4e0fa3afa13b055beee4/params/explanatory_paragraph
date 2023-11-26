@@ -1,5 +1,0 @@
-
-    This experiment aims to evaluate the performance of a machine learning model 
-    using a dataset of X features and Y target variable. We are testing different 
-    algorithms and hyperparameters to optimize predictive accuracy. note that in this version the mlp and svc are not used since they take a lot of time to train and evaluate
-    

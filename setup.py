@@ -13,7 +13,7 @@ setup(
     entry_points={
         'console_scripts': [
             'predict = sentiment_analyzer.predict:predict' , 
-            'promote  = sentiment_analyzer.test.promote:promote'
+            'promote  = sentiment_analyzer.promote:promote'
         ],
     },
 )
