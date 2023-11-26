@@ -1,9 +1,7 @@
 import click as ck 
-import pandas as pd
 from sentiment_analyzer.model_manager import ModelManager 
 import subprocess
 import pkg_resources
-import os 
 @ck.command()
 @ck.option('--inpute_file', '-i' ,  type = ck.Path(), help='input file'  , default = "data/test.csv")
 @ck.option('--model_name', '-m', type = str, required=True , help='model name')
