@@ -34,13 +34,15 @@ class ModelManager:
     
     def retrain(self, training_set, training_set_id, register_updated_model):
         mlflow.set_tracking_uri(self.mlflow_url)
+        mlflow.set_experiment("model_design_3")
         model = mlflow.sklearn.load_model(
             model_uri=f"models:/{self.model_name}/{self.model_version}"
         )
         df = pd.read_csv(training_set)
         model.fit(df["review"], df["polarity"])
         tags = {"parent_version": self.model_version, 'retrained': 'True' , 'training_set_id': training_set_id}
-        if register_updated_model : 
-            mlflow.sklearn.log_model(model, f"models/{self.model_name}")
-            mlflow.set_tags(tags)
+        if register_updated_model :
+            with mlflow.start_run():
+                mlflow.sklearn.log_model(model, f"models/{self.model_name}")
+                mlflow.set_tags(tags)
         return None 
