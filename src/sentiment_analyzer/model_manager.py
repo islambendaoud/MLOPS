@@ -13,13 +13,17 @@ class ModelManager:
 
         self.mlflow_url = mlflow_url
 
-    def predict(self):
-        mlflow.set_tracking_uri(self.mlflow_url)
-        print(self.mlflow_url)
-        model = mlflow.sklearn.load_model(
-            model_uri=f"models:/{self.model_name}/{self.model_version}"
-        )
-        df = pd.read_csv(self.inpute_file)
+    def predict(self , text):
+        if self.input_file is not None 
+            mlflow.set_tracking_uri(self.mlflow_url)
+            print(self.mlflow_url)
+            model = mlflow.sklearn.load_model(
+                model_uri=f"models:/{self.model_name}/{self.model_version}"
+            )
+            df = pd.read_csv(self.inpute_file)
+        else :
+            data = {'Review': [text]}
+            df = pd.DataFrame(data)
         output = model.predict(df["review"])
         return output
     
