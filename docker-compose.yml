@@ -1,0 +1,25 @@
+services:
+  webapp:
+    image: sentiment-analyzer:${VERSION}
+    environment:
+      - VERSION=${VERSION}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+  frontend:
+    build: ./src/frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - URL=http://webapp:8000
+      
+  mongodb:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongo-data:/data/db
+
+
+volumes:
+  mongo-data:
