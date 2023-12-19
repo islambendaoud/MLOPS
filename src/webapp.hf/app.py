@@ -15,7 +15,7 @@ ps = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
 
 
 # charge the model that is in the /tmp/sentiment-analyzer-model
-model = joblib.load("/model.pkl")
+model = joblib.load("/model/model.pkl")
 
 
 app=FastAPI(title ="Sentiment Analyzer API", version="1.0" , description="Sentiment Analyzer API")
