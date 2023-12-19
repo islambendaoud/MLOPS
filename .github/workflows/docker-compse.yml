@@ -23,8 +23,8 @@ jobs:
     - name: Build and Push Docker image 1
       uses: docker/build-push-action@v2
       with:
-        context: ../../src/webapp.hf
-        file: ../../src/webapp.hf/Dockerfile
+        context: ./src/webapp.hf
+        file: ./src/webapp.hf/Dockerfile
         push: true
         tags: ${{ vars.HUGGINGFACE_ID}}/${{ vars.MODEL_NAME }}:${{ vars.MODEL_VERSION}}
         build-args: |
@@ -36,6 +36,6 @@ jobs:
     - name: Build and Push Docker image 2
       uses: docker/build-push-action@v2
       with:
-        context: ../../src/frontend
-        file: ../../src/frontend/Dockerfile
+        context: ./src/frontend
+        file: ./src/frontend/Dockerfile
         push: true
