@@ -26,7 +26,7 @@ jobs:
         context: ./src/webapp.hf
         file: ./src/webapp.hf/Dockerfile
         push: true
-        tags: ${{ vars.HUGGINGFACE_ID}}/${{ vars.MODEL_NAME }}:${{ vars.MODEL_VERSION}}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME}}/sentiment-analyzer:{{vars.CODE_VERSION}}-${{ vars.MODEL_NAME }}-${{ vars.MODEL_VERSION}}
         build-args: |
           HF_ID=${{ vars.HUGGINGFACE_ID}}
           MODEL_NAME=${{ vars.MODEL_NAME }}
