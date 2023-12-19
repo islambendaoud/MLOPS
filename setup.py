@@ -14,7 +14,8 @@ setup(
         'console_scripts': [
             'predict = sentiment_analyzer.predict:predict' , 
             'promote  = sentiment_analyzer.promote:promote' ,
-            'retrain = sentiment_analyzer.retrain:retrain'
+            'retrain = sentiment_analyzer.retrain:retrain' , 
+            'hf_export = sentiment_analyzer.hf_export:hf_export', 
         ],
     },
 )

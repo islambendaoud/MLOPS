@@ -14,7 +14,7 @@ class ModelManager:
         self.mlflow_url = mlflow_url
 
     def predict(self , text):
-        if self.input_file is not None 
+        if self.input_file is not None :
             mlflow.set_tracking_uri(self.mlflow_url)
             print(self.mlflow_url)
             model = mlflow.sklearn.load_model(
