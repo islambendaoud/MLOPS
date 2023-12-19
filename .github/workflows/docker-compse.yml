@@ -1,0 +1,41 @@
+name: Docker Images Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check Out Repo
+      uses: actions/checkout@v2
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD}}
+
+    - name: Build and Push Docker image 1
+      uses: docker/build-push-action@v2
+      with:
+        context: ../../src/webapp
+        file: ../../src/webapp/Dockerfile
+        push: true
+        tags: ${{ vars.HUGGINGFACE_ID}}/${{ vars.MODEL_NAME }}:${{ vars.MODEL_VERSION}}
+        build-args: |
+          HF_ID=${{ vars.HUGGINGFACE_ID}}
+          MODEL_NAME=${{ vars.MODEL_NAME }}
+          MODEL_VERSION=${{ vars.MODEL_VERSION}}
+
+
+    - name: Build and Push Docker image 2
+      uses: docker/build-push-action@v2
+      with:
+        context: ../../src/frontend
+        file: ../../src/frontend/Dockerfile
+        push: true
